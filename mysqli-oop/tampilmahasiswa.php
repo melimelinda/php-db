@@ -1,7 +1,13 @@
 <?php
+session_start();
+include "koneksi.php";
 
-
-
+  if(!isset($_SESSION['username'])){
+    header("location:login.php");
+    exit();
+  }else{
+    $username = $_SESSION['username'];
+  }
 include "koneksi.php";
 include "formmahasiswa.php";
 echo"<center><b>";
@@ -33,5 +39,5 @@ echo "<tr>
 $no++;
 }
 echo "</table><br/>";
-
+echo "<p><a href='logout.php'>logout</a></p>";
 ?>
