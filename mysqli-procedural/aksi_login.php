@@ -5,9 +5,9 @@ include "koneksi.php";
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-	$query=$con->query("select * from login where username='$username' and password='$password'");
-	$a=$query->num_rows;
-	$hasil = $query->fetch_array();
+	$query=mysqli_query($con,"select * from login where username='$username' and password='$password'");
+	$a=mysqli_num_rows($query);
+	$hasil = mysqli_fetch_array($query);
 	$errorMessage='';
 		if ($a==TRUE) {
 			# code...
